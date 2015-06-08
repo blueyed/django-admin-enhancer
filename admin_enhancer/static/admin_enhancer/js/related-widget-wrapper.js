@@ -35,7 +35,7 @@ django.jQuery(document).ready(function($){
 	var relatedWidgetCSSSelector = '.related-widget-wrapper-change-link, .related-widget-wrapper-delete-link',
   		hrefTemplateAttr = 'data-href-template';
   
-    $('#container').delegate('.related-widget-wrapper', 'change', function(event){
+    $('#container, #grp-container').delegate('.related-widget-wrapper', 'change', function(event){
         var siblings = $(this).nextAll(relatedWidgetCSSSelector),
             value = event.target.value;
         if (!siblings.length) return;
@@ -47,7 +47,7 @@ django.jQuery(document).ready(function($){
         } else siblings.removeAttr('href');
     });
 
-	$('#container').delegate('.related-widget-wrapper-link', 'click', function(event){
+	$('#container, #grp-container').delegate('.related-widget-wrapper-link', 'click', function(event){
     	if (this.href) {
     		return showAddAnotherPopup(this);
     	} else return false;
